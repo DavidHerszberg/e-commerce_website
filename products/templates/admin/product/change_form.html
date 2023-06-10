@@ -1,0 +1,15 @@
+{% extends "admin/change_form.html" %}
+
+{% block object-tools-items %}
+    {{ block.super }}
+    <li>
+        <a href="{% url 'admin:product_attributes' original.id%}" class="historylink">סינונים</a>
+    </li>
+{% endblock %}
+{% block contents %}
+{{ block.super }}
+{% for field in fields %}
+{{field}}
+cevvetvtv
+{% endfor %}
+{% endblock contents %}

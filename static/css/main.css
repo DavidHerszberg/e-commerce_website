@@ -1,0 +1,20 @@
+.container-menu-desktop {
+    height: auto;
+}
+
+.wrap-menu-desktop {
+    height: 150px;
+}
+
+.logo-desktop {
+    height: inherit;
+}
+
+.logo {
+    display: inline-block;
+    height: inherit;
+}
+
+.logo img {
+    height: inherit;
+}

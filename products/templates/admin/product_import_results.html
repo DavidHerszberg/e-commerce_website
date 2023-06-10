@@ -1,0 +1,45 @@
+{% extends "admin/base_site.html" %}
+{% load i18n admin_urls %}
+
+{% block title %}
+    {{ page_title }}{{ block.super }}
+{% endblock %}
+
+{% block breadcrumbs %}
+<div class="breadcrumbs">
+<a href="{% url 'admin:index' %}">{% translate 'Home' %}</a>
+&rsaquo; <a href="{% url 'admin:app_list' app_label=opts.app_label %}">{{ opts.app_config.verbose_name }}</a>
+&rsaquo; <a href="{% url opts|admin_urlname:'changelist' %}">{{ opts.verbose_name_plural|capfirst }}</a>
+&rsaquo; <a href="{% url 'admin:product_import' %}">ייבוא מוצרים</a>
+&rsaquo; {{ page_title }}
+</div>
+{% endblock %}
+
+{% block content %}
+  <div class="django-admin-form">
+    <h1>Product Import Results</h1>
+    {% if total_imported %}
+      <p>{{ total_imported }} products imported successfully.</p>
+    {% endif %}
+
+    {% if failed_lines %}
+      <h2>Failed Imports</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Line Number</th>
+            <th>Error Message</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for line_number, error_message in failed_lines %}
+          <tr>
+            <td>{{ line_number }}</td>
+            <td>{{ error_message }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% endif %}
+  </div>
+{% endblock %}

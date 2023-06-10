@@ -1,0 +1,28 @@
+{% extends "admin/change_form.html" %}
+{% load i18n static %}
+{% block title %}
+    {{ page_title }}{{ block.super }}
+{% endblock %}
+
+{% block content %}
+  <div class="dynamic-form" style="width: 100px;">
+    <form method="post">
+      {% csrf_token %}
+      {% for field in form %}
+        <div class="field-box" style="width:100px; height:10">
+          {{ field }}
+        </div>
+      {% endfor %}
+      <button type="submit" class="btn btn-primary">אישור</button>
+    </form>
+  </div>
+{% endblock %}
+
+{% block footer %}
+  {{ form.media }}
+  <style>
+    .selector {
+        height: 200px;
+    }
+  </style>
+{% endblock %}
