@@ -3,7 +3,7 @@ from django.core.files.storage import default_storage
 from django.http import HttpResponse, HttpRequest
 
 def home(request):
-    return render(request, 'home-own.html')
+    return render(request, 'home.html')
 
 def serve_site_image(request, image_name):
     image_path = f'site-images/{image_name}'

@@ -27,6 +27,7 @@ urlpatterns = [
     path('attribute_images/<str:image_name>', product_views.serve_attribute_image, name='serve_attribute_image'),
     path('products/', include('products.urls')),
     path('tinymce/',include('tinymce.urls')),
+    path('cart/', include('cart.urls')),
 ]
 
 
