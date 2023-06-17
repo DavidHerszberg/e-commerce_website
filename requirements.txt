@@ -1,0 +1,6 @@
+django
+django-cleanup
+django-tinymce
+Pillow
+python-magic
+requests

@@ -1,0 +1,4 @@
+{% for item in cart.items.all %}
+    <h1>{{item.product.hebrew_name}}</h1>
+    <h2>{{item.quantity}}</h2>
+{% endfor %}

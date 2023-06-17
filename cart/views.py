@@ -26,13 +26,14 @@ def add_to_cart(request):
     item, created = CartItem.objects.get_or_create(cart=cart, product=product)
     
     if not created:
+        if item.quantity + quantity > product.inventory:
+            messages.error(request, 'הכמות המבוקשת לא קיימת במלאי')
+            return JsonResponse({'success': False})
+  
         item.quantity += quantity
     else:
         item.quantity = quantity
     item.save()
-
-    product.inventory -= quantity
-    product.save()
 
     messages.success(request, "המוצר נוסף בהצלחה")
     return JsonResponse({'success': True})
@@ -54,8 +55,7 @@ def update_quantity(request):
     product = item.product
 
     if quantity > 0:
-        inventory = item.quantity + product.inventory
-        if quantity > inventory:
+        if quantity > product.inventory:
             messages.error(request, 'הכמות המבוקשת לא קיימת במלאי')
             return JsonResponse({'success': False})
         item.quantity = quantity
