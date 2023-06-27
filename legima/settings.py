@@ -148,4 +148,6 @@ TINYMCE_DEFAULT_CONFIG = {
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     ("css" ,os.path.join(BASE_DIR, 'static/css')),
+    ("js" ,os.path.join(BASE_DIR, 'static/js')),
+    ("images" ,os.path.join(BASE_DIR, 'static/images')),
 ]

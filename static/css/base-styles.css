@@ -1,0 +1,109 @@
+@font-face {
+    font-family: Alef;
+    src: url(/fonts/Alef-Regular.ttf);
+}
+@font-face {
+    font-family: Alef;
+    src: url(/fonts/Alef-Bold.ttf);
+    font-weight: bold;
+}
+
+
+body {
+    margin: 0;
+    height: 500vh;
+    font-family: Alef;
+}
+
+.home-header {
+    position: absolute;
+    height: 30vmin;
+    width: 100%;    
+    background-color: rgba(244, 236, 222, 0);
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row-reverse;
+    transition: all 0.6s;
+}
+
+.home-header-logo {
+    height: 90%;
+    transition: all .6s;
+}
+
+@media screen and (max-width: 600px) {
+    .home-header {
+        justify-content: left;
+        }
+    .home-header-logo{
+        margin-left: 1.5vmin;
+    }
+}
+
+.scrolled-header {
+    position: fixed;
+    top: 0;
+    height: 18%;
+    background-color: black;
+    transition: all 0.3s;
+}
+
+.home-banner-top {
+    width: 100%;
+}
+
+.home-banner-top-image {
+    width: inherit;
+    min-height: 100vh;
+    object-fit: cover;
+    transition: all .6s;
+}
+
+@media screen and (max-width: 600px) {
+    .home-banner-top-image {
+        object-position: 60%;
+        transition: all .6s;
+    }
+}
+
+
+.home-banner-top-arrow {
+    position: absolute;
+    height: 3em;
+    top: min(calc(50vh - 1.5em),calc(50% - 1.5em));
+    color: goldenrod;
+    z-index: 2;
+}
+
+.home-banner-top-arrow:active {
+    transform: scale(.8);
+}
+
+@media screen and (max-width: 600px) {
+    .home-banner-top-arrow {
+        display: none;
+    }
+}
+
+.prev {
+    right: 2%;
+}
+
+.next {
+    left: 2%;
+}
+
+.home-banner-top-arrow:hover {
+    color: darkgray;
+}
+
+.homepage-subheader {
+    text-align: center;
+    font-weight: bold;
+    color: rgb(230, 200, 111);
+    text-shadow: 1px 2px 3px darkgray;
+    font-size: 50px;
+    padding: 10vh 0;
+}

@@ -1,0 +1,23 @@
+.carousel-wrapper {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    z-index: 1;
+    box-shadow: 0 1em 2em darkgray;
+}
+
+.carousel {
+    position: relative;
+    display: flex;
+    top: 0;
+    right: -100%;
+    flex-direction: row-reverse;
+}
+
+.carousel.shifting {
+    transition: left .6s ease-out;
+  }
+
+.carousel-item {
+    width: 100vw;
+}
